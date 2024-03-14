@@ -49,7 +49,20 @@
                             {!!$post -> body!!}
                         </div>
                     </div>
+
+                    <section class="col-span-8 col-start-5 mt-10 space-y-6">
+                        <h1 class="font-bold text-2xl border-b">Comments</h1>
+                        
+                        @include('posts._add-comment-form')
+                        
+                        @foreach ($post -> comments as $comment)
+                             <x-post-comment :comment="$comment" /> 
+                        @endforeach
+                        
+                    </section>
+
                 </article>
+
             </main>
         </section>
 </x-layout>
