@@ -14,7 +14,9 @@ class NewsletterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Newsletter $newsletter)
+    
+        // new Newsletter
+     public function __invoke(Newsletter $newsletter)
     {
         request()->validate([
             'email' => 'required'

@@ -1,26 +1,9 @@
 <?php
 
-namespace App\Services;
-use MailchimpMarketing\ApiClient;
+namespace app\Services;
 
-class Newsletter
+interface Newsletter
 {
-    public function subscribe($email, string $list = null)
-    {
-        $list ??= config('services.mailchimp.lists.subscribers');
-        
-        return $this -> client() -> lists -> addListMember($list, [
-            'email_address' => request('email'),
-            'status' => 'subscribed'
-        ]);
-    }
-
-    protected function client() 
-    {
-        return (new ApiClient()) ->setConfig([
-            'apiKey' => config('services.mailchimp.key'),
-            'server' => 'us9'
-        ]);
-    }
+    public function subscribe($email, string $list = null);
 
 }
